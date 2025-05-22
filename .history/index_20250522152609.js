@@ -23,8 +23,7 @@ async function run() {
         await client.connect();
 
         app.post('/all-groups', async(req, res)=>{
-            const newGroup = req.body;
-            console.log(newGroup);
+            const newGroup = 
         })
 
         // Send a ping to confirm a successful connection
