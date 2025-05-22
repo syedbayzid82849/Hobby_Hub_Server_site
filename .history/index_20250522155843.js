@@ -27,8 +27,7 @@ async function run() {
         app.post('/all-groups', async(req, res)=>{
             const newGroup = req.body;
             console.log(newGroup);
-            const result = await allGoupsCollection.insertOne(newGroup);
-            res.send(result);
+            const result = await allGoupsCollection.insertOne(nwe)
         })
 
         // Send a ping to confirm a successful connection

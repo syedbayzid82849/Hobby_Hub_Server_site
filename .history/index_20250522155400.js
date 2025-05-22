@@ -20,15 +20,11 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
-        await client.connect();
-
-        const allGoupsCollection = client.db('allGroupsDB').collection('allGroups')
+        await client.connect();]]
 
         app.post('/all-groups', async(req, res)=>{
             const newGroup = req.body;
             console.log(newGroup);
-            const result = await allGoupsCollection.insertOne(newGroup);
-            res.send(result);
         })
 
         // Send a ping to confirm a successful connection

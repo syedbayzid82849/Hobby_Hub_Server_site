@@ -28,7 +28,7 @@ async function run() {
             const newGroup = req.body;
             console.log(newGroup);
             const result = await allGoupsCollection.insertOne(newGroup);
-            res.send(result);
+            res.send(result)
         })
 
         // Send a ping to confirm a successful connection
