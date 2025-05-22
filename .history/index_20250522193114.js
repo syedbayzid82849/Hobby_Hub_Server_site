@@ -25,9 +25,7 @@ async function run() {
         const allGroupsCollection = client.db('allGroupsDB').collection('allGroups');
 
         app.get('/all-groups', async (req, res) => {
-            // const cursor = allGroupsCollection.find();
-            // const result = await cursor.toArray();
-            const result =await allGroupsCollection.find().toArray();
+            const cursor =
             res.send(result);
         })
 

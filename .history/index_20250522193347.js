@@ -27,7 +27,7 @@ async function run() {
         app.get('/all-groups', async (req, res) => {
             // const cursor = allGroupsCollection.find();
             // const result = await cursor.toArray();
-            const result =await allGroupsCollection.find().toArray();
+            const result =await allGroupsCollection.find()
             res.send(result);
         })
 
