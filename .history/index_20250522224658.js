@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -22,21 +22,12 @@ async function run() {
         // Connect the client to the server	(optional starting in v4.7)
         await client.connect();
 
-        const allGroupsCollection = client.db('allGroupsDB').collection('allGroups');
+        const  = client.db('allGroupsDB').collection('allGroups');
 
-        // all group details show to client
         app.get('/all-groups', async (req, res) => {
             // const cursor = allGroupsCollection.find();
             // const result = await cursor.toArray();
-            const result =await allGroupsCollection.find().toArray();
-            res.send(result);
-        })
-
-        // get to spacific group details show
-        app.get('/all-groups/:id', async(req, res) => {
-            const id =req.params.id;
-            const query ={_id: new ObjectId(id)};
-            const result = await allGroupsCollection.findOne(query);
+            const result = await allGroupsCollection.find().toArray();
             res.send(result);
         })
 
@@ -46,6 +37,16 @@ async function run() {
             const result = await allGroupsCollection.insertOne(newGroup);
             res.send(result);
         })
+
+        // inser many 
+        app.post('/all-groups', async (req, res) => {
+            const newGroup = req.body;
+            console.log(newGroup);
+            const result = await allGroupsCollection.insertOne(newGroup);
+            res.send(result);
+        })
+
+
 
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });

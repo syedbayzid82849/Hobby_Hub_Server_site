@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -24,7 +24,7 @@ async function run() {
 
         const allGroupsCollection = client.db('allGroupsDB').collection('allGroups');
 
-        // all group details show to client
+        all group details show to client
         app.get('/all-groups', async (req, res) => {
             // const cursor = allGroupsCollection.find();
             // const result = await cursor.toArray();
@@ -32,13 +32,7 @@ async function run() {
             res.send(result);
         })
 
-        // get to spacific group details show
-        app.get('/all-groups/:id', async(req, res) => {
-            const id =req.params.id;
-            const query ={_id: new ObjectId(id)};
-            const result = await allGroupsCollection.findOne(query);
-            res.send(result);
-        })
+
 
         app.post('/all-groups', async (req, res) => {
             const newGroup = req.body;
