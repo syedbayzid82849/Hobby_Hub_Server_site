@@ -28,26 +28,19 @@ async function run() {
         app.get('/all-groups', async (req, res) => {
             // const cursor = allGroupsCollection.find();
             // const result = await cursor.toArray();
-            const result = await allGroupsCollection.find().toArray();
+            const result =await allGroupsCollection.find().toArray();
             res.send(result);
         })
 
         // get to spacific group details show
-        app.get('/all-groups/:id', async (req, res) => {
-            const id = req.params.id;
-            const query = { _id: new ObjectId(id) };
+        app.get('/all-groups/:id', async(req, res) => {
+            const id =req.params.id;
+            const query ={_id: new ObjectId(id)};
             const result = await allGroupsCollection.findOne(query);
             res.send(result);
         })
 
-        // user's created groups to get system 
-        app.get('/my-group', async (req, res) => {
-            // const cursor = allGroupsCollection.find();
-            // const result = await cursor.toArray();
-            const query = { email: "husains82849@gmail.com" };
-            const result = await allGroupsCollection.find(query).toArray();
-            res.send(result);
-        })
+        user's cr
 
         app.post('/all-groups', async (req, res) => {
             const newGroup = req.body;

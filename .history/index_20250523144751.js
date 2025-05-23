@@ -40,7 +40,7 @@ async function run() {
             res.send(result);
         })
 
-        // user's created groups to get system 
+        // user's created groups get
         app.get('/my-group', async (req, res) => {
             // const cursor = allGroupsCollection.find();
             // const result = await cursor.toArray();

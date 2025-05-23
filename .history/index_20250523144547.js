@@ -40,18 +40,20 @@ async function run() {
             res.send(result);
         })
 
-        // user's created groups to get system 
+        // user's created groups get
         app.get('/my-group', async (req, res) => {
             // const cursor = allGroupsCollection.find();
             // const result = await cursor.toArray();
-            const query = { email: "husains82849@gmail.com" };
-            const result = await allGroupsCollection.find(query).toArray();
+            const result = await allGroupsCollection.find().toArray();
             res.send(result);
         })
 
         app.post('/all-groups', async (req, res) => {
             const newGroup = req.body;
             console.log(newGroup);
+            const query = {
+                email
+"husains82849@gmail.com"};
             const result = await allGroupsCollection.insertOne(newGroup);
             res.send(result);
         })
