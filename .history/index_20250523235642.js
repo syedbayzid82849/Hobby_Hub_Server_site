@@ -41,12 +41,12 @@ async function run() {
         })
 
         // user's created groups to get system 
-        app.get('/my-groups/:email', async (req, res) => {
-            const email = req.params.email;
-            const query = { email: email };
-            const result = await allGroupsCollection.find(query).toArray(); // একাধিক group পাওয়া যাবে
-            res.send(result);
-        });
+app.get('/my-groups/:email', async (req, res) => {
+    const email = req.params.email;
+    const query = { email: email };
+    const result = await allGroupsCollection.find(query).toArray(); // একাধিক group পাওয়া যাবে
+    res.send(result);
+});
 
         app.post('/all-groups', async (req, res) => {
             const newGroup = req.body;
