@@ -60,9 +60,9 @@ async function run() {
         app.put('/all-groups/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) };
-            const options = { upsert: true };
+            const options ={ upsert: true};
             const updatedGroupInfo = req.body;
-            const updatedDoc = {
+            const updatedDoc ={
                 $set: updatedGroupInfo
             }
             const result = await allGroupsCollection.updateOne(query, updatedDoc, options);

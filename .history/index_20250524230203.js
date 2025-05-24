@@ -5,8 +5,6 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 
 const app = express();
 const port = process.env.PORT || 3000;
-app.use(cors());
-app.use(express.json());
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ev6secp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
@@ -60,9 +58,9 @@ async function run() {
         app.put('/all-groups/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) };
-            const options = { upsert: true };
+            const options ={ upsert: true};
             const updatedGroupInfo = req.body;
-            const updatedDoc = {
+            const updatedDoc ={
                 $set: updatedGroupInfo
             }
             const result = await allGroupsCollection.updateOne(query, updatedDoc, options);
