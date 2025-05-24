@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000;
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ev6secp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
+const client = new MongoCliet(uri, {
     serverApi: {
         version: ServerApiVersion.v1,
         strict: true,
@@ -54,8 +54,6 @@ async function run() {
             const result = await allGroupsCollection.insertOne(newGroup);
             res.send(result);
         });
-
-        // update group info. 
 
         // user's created groups delete
         app.delete('/delete-group/:id', async (req, res) => {

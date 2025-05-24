@@ -55,7 +55,7 @@ async function run() {
             res.send(result);
         });
 
-        // update group info. 
+        update group instanceof. 
 
         // user's created groups delete
         app.delete('/delete-group/:id', async (req, res) => {

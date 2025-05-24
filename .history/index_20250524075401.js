@@ -55,15 +55,16 @@ async function run() {
             res.send(result);
         });
 
-        // update group info. 
-
         // user's created groups delete
-        app.delete('/delete-group/:id', async (req, res) => {
-            const id = req.params.id;
-            const query = { _id: new ObjectId(id) };
-            const result = await allGroupsCollection.deleteOne(query);
-            res.send(result);
-        });
+        app.delete('/all-groups/:email', async (req, res) => {
+            
+            // const email = req.params.email;
+            // const query = { email: email };
+            // const result = await allGroupsCollection.deleteOne(query).toArray(); // একাধিক group পাওয়া যাবে
+            // res.send(result);
+
+        })
+
         // Send a ping to confirm a successful connection
         await client.db("admin").command({ ping: 1 });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");

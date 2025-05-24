@@ -55,8 +55,6 @@ async function run() {
             res.send(result);
         });
 
-        // update group info. 
-
         // user's created groups delete
         app.delete('/delete-group/:id', async (req, res) => {
             const id = req.params.id;
