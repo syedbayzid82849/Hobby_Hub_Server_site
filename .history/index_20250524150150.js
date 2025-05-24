@@ -62,9 +62,9 @@ async function run() {
             const options ={ upsert: true};
             const updatedGroupInfo = req.body;
             const updatedDoc ={
-                $set: updatedGroupInfo
+                
             }
-            const result = await allGroupsCollection.updateOne(query, updatedDoc, options);
+            const result = await allGroupsCollection.deleteOne(query);
             res.send(result);
         })
 

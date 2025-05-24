@@ -64,7 +64,7 @@ async function run() {
             const updatedDoc ={
                 $set: updatedGroupInfo
             }
-            const result = await allGroupsCollection.updateOne(query, updatedDoc, options);
+            const result = await allGroupsCollection.updateOne(query, updatedDoc, );
             res.send(result);
         })
 

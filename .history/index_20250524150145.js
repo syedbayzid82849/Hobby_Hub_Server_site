@@ -61,10 +61,8 @@ async function run() {
             const query = { _id: new ObjectId(id) };
             const options ={ upsert: true};
             const updatedGroupInfo = req.body;
-            const updatedDoc ={
-                $set: updatedGroupInfo
-            }
-            const result = await allGroupsCollection.updateOne(query, updatedDoc, options);
+            const updatedGo
+            const result = await allGroupsCollection.deleteOne(query);
             res.send(result);
         })
 

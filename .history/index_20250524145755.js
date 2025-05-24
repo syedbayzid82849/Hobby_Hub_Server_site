@@ -56,17 +56,7 @@ async function run() {
         });
 
         // update group info. 
-        app.put('/all-groups/:id', async (req, res) => {
-            const id = req.params.id;
-            const query = { _id: new ObjectId(id) };
-            const options ={ upsert: true};
-            const updatedGroupInfo = req.body;
-            const updatedDoc ={
-                $set: updatedGroupInfo
-            }
-            const result = await allGroupsCollection.updateOne(query, updatedDoc, options);
-            res.send(result);
-        })
+        
 
         // user's created groups delete
         app.delete('/delete-group/:id', async (req, res) => {
